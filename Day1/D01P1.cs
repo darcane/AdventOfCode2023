@@ -1,8 +1,8 @@
 ﻿namespace AdventOfCode2023.Day1
 {
-    public class D1P1: IPuzzleSolver
+    public class D01P1: IPuzzleSolver
     {
-        private readonly PuzzleReader<D1P1> _reader = new();
+        private readonly PuzzleReader<D01P1> _reader = new();
         public string PuzzleName => "Day1";
 
         public void Solve()

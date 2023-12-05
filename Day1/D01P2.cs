@@ -1,8 +1,8 @@
 ﻿namespace AdventOfCode2023.Day1
 {
-    public class D1P2 : IPuzzleSolver
+    public class D01P2 : IPuzzleSolver
     {
-        private readonly PuzzleReader<D1P1> _reader = new();
+        private readonly PuzzleReader<D01P1> _reader = new();
 
         private static readonly List<string> numberList = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
         public string PuzzleName => "Day1";
@@ -18,7 +18,7 @@
                 int first = -1, last = -1;
 
                 var result = FindFirstAndLast(line);
-                if (result.Item1 != null) first = GetIntOfString(result.Item1);
+                first = GetIntOfString(result.Item1);
                 last = GetIntOfString(result.Item2);
 
                 total += (first * 10) + last;

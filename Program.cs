@@ -1,6 +1,16 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using AdventOfCode2023.Day1;
+using AdventOfCode2023;
 
-var solution = new D1P2();
-solution.Solve();
+var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(s => s.GetTypes())
+    .Where(p => typeof(IPuzzleSolver).IsAssignableFrom(p) && p.IsClass);
+
+foreach (var type in types.OrderBy(x=>x.Name))
+{
+    var instance = Activator.CreateInstance(type);
+    if (instance is IPuzzleSolver solver)
+    {
+        Console.WriteLine($"Solution: {instance.GetType().Name} :");
+        solver.Solve();
+    }
+}
